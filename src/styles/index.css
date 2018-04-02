@@ -1,0 +1,81 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  margin: 0; }
+
+.container {
+  height: 100%;
+  width: 100%; }
+
+.main-box {
+  background-image: url("bg.svg");
+  height: 1061px;
+  display: flex;
+  justify-content: center; }
+  .main-box .central {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .main-box .central h1 {
+      font-size: 45px;
+      color: white;
+      font-weight: 100; }
+    .main-box .central .text-box {
+      display: block;
+      width: 100%;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+    .main-box .central .btn-main {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      margin: 10px 0 0 40px;
+      cursor: pointer; }
+
+.navbar {
+  background: rgba(252, 90, 44, 0.89);
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between; }
+  .navbar .text-box {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+  .navbar .btn-main {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 10px 10px 0 10px;
+    cursor: pointer; }
+  .navbar .search-nav {
+    margin-top: 20px; }
+
+/*# sourceMappingURL=index.css.map */
