@@ -1,42 +1,47 @@
 import React, { Component } from 'react';
-import api from '../utils/api';
+// import api from '../utils/api';
+import { Link } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props){
     super(props);
-    this.state={ city: ""}
+    this.state={ city: ""};
+
     this.onInputChange = this.onInputChange.bind(this);
-    this.onSubmitCity = this.onSubmitCity.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
+
   }
-  onSubmitCity(e){
-    e.preventDefault();
-    this.props.onSubmit(
-      this.props.city,
-    )
-    this.setState({ city: '' })
+
+  handleOnClick(){
+    this.setState(()=> ({
+      city: ''
+    }))
   }
 
   onInputChange(e){
-    const value = e.target.value;
+    const city = e.target.value;
     this.setState(()=> ({
-      city: value
+      city
     }))
   }
   render () {
 
+    const city = this.state.city
+    // console.log('CITY',city)
     return (
-      <form onSubmit={this.onSubmitCity}>
+      <div>
         <input
         type='text'
         className='text-box'
         placeholder='St. George, Utah'
         onChange={this.onInputChange}
+        value={this.state.city}
         />
 
-        <button className='btn-main'>
+      <Link  onClick={this.handleOnClick} to={'/forecast/'+ city} className='btn-main'>
           Get Weather
-        </button>
-      </form>
+        </Link>
+      </div>
     )
   }
 }

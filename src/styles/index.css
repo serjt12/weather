@@ -7,7 +7,7 @@ body {
   width: 100%; }
 
 .main-box {
-  background-image: url("bg.svg");
+  background-image: url("../images/bg.svg");
   height: 1061px;
   display: flex;
   justify-content: center; }
@@ -21,6 +21,7 @@ body {
       color: white;
       font-weight: 100; }
     .main-box .central .text-box {
+      margin-bottom: 22px;
       display: block;
       width: 100%;
       height: 34px;
@@ -43,8 +44,8 @@ body {
       text-align: center;
       border: 1px solid transparent;
       border-radius: 4px;
-      margin: 10px 0 0 40px;
-      cursor: pointer; }
+      margin-left: 46px;
+      text-decoration: none; }
 
 .navbar {
   background: rgba(252, 90, 44, 0.89);
@@ -74,8 +75,30 @@ body {
     border: 1px solid transparent;
     border-radius: 4px;
     margin: 10px 10px 0 10px;
-    cursor: pointer; }
+    text-decoration: none; }
   .navbar .search-nav {
     margin-top: 20px; }
+
+.city-name {
+  font-size: 65px;
+  text-align: center;
+  font-weight: 100; }
+
+.forecast-container {
+  display: flex;
+  max-width: 1321px;
+  flex-wrap: wrap;
+  margin: 50px auto; }
+  .forecast-container .day-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 35px; }
+    .forecast-container .day-container .weather-icon {
+      height: 130px; }
+    .forecast-container .day-container .date {
+      font-size: 30px;
+      color: #333;
+      font-weight: 100; }
 
 /*# sourceMappingURL=index.css.map */
