@@ -38,7 +38,7 @@ class Search extends Component {
         value={this.state.city}
         />
 
-      <Link  onClick={this.handleOnClick} to={'/forecast/'+ city} className='btn-main'>
+      <Link  onClick={this.handleOnClick} to={`/forecast/${city}`} className='btn-main'>
           Get Weather
         </Link>
       </div>

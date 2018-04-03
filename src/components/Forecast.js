@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
 import api from '../utils/api';
 import Loading from './Loading';
-import getDate from '../utils/helpers'
+import DayWeather from './DayWeather';
 
-
-
-function DayWeather (props){
-
-  const date = getDate(props.day.dt);
-  const icon = props.day.weather[0].icon;
-  return(
-    <div className='day-container'>
-      <img className='weather-icon' src={'../images/' + icon + '.svg'} alt='Weather' />
-      <h2 className='date'>{date}</h2>
-    </div>
-  )
-}
 
 class Forecast extends Component{
   constructor(props){
@@ -79,9 +66,18 @@ class Forecast extends Component{
       });
   }
 
+handleClick(city){
+  this.props.history.push({
+    pathname: `/details/${this.state.city}`,
+    state: this.state.city,
+  })
+}
+
+
+
   render () {
     // const name = this.state.weatherData.city.name
-    console.log("STATE:",this.state.weatherData)
+    // console.log("STATE:",this.state)
 
     return (
       this.state.loading === true
@@ -91,8 +87,8 @@ class Forecast extends Component{
       <h1 className='city-name'>{this.state.weatherData.city.name}</h1>
         <div className="forecast-container">
           {this.state.weatherData.list.map(function(listData){
-            return <DayWeather key={listData.dt} day={listData} />
-          })}
+            return <DayWeather onClick={this.handleClick.bind(this, listData)} key={listData.dt} day={listData} />
+          },this)}
         </div>
       </section>
     )
