@@ -5,23 +5,25 @@ import { Link } from 'react-router-dom';
 class Search extends Component {
   constructor(props){
     super(props);
-    this.state={ city: ""};
+    this.state={ city: ''};
 
     this.onInputChange = this.onInputChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
+
+
   handleOnClick(){
-    this.setState(()=> ({
+    this.setState({
       city: ''
-    }))
+    })
   }
 
   onInputChange(e){
     const city = e.target.value;
-    this.setState(()=> ({
+    this.setState({
       city
-    }))
+    })
   }
   render () {
 
@@ -34,6 +36,7 @@ class Search extends Component {
         className='text-box'
         placeholder='St. George, Utah'
         onChange={this.onInputChange}
+        onFocus={this.onInputFocus}
         value={this.state.city}
         />
 
@@ -44,5 +47,7 @@ class Search extends Component {
     )
   }
 }
+
+
 
 export default Search;

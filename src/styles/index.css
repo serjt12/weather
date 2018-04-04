@@ -53,6 +53,9 @@ body {
   padding: 5px;
   display: flex;
   justify-content: space-between; }
+  .navbar .logo {
+    text-decoration: none;
+    color: white; }
   .navbar .text-box {
     height: 34px;
     padding: 6px 12px;
@@ -134,5 +137,12 @@ body {
     color: rgba(101, 195, 224, 0.97); }
   .details-container .description-details .max-temp {
     color: rgba(236, 118, 80, 0.97); }
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .not-found-container .not-found-img {
+    width: 20%; }
 
 /*# sourceMappingURL=index.css.map */

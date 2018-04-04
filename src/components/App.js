@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import notFound from '../styles/nf.svg';
 
 import Header from './Header';
 import Home from './Home';
@@ -17,7 +18,12 @@ class App extends Component {
           <Route exact path='/forecast/:city' component={ Forecast }/>
           <Route exact path='/details/:city' component={ Details }/>
             <Route render={function () {
-              return <p>Page Not Found</p>
+              return (
+                <div className='not-found-container'>
+                  <p className='city-name'>Page Not Found</p>
+                  <img className='not-found-img' src={notFound} alt='Not Found'></img>
+                </div>
+              )
             }} />
         </Switch>
       </div>
