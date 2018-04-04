@@ -78,6 +78,10 @@ body {
     text-decoration: none; }
   .navbar .search-nav {
     margin-top: 20px; }
+    @media screen and (min-width: 280px) and (max-width: 530px) {
+      .navbar .search-nav .search-container {
+        display: flex;
+        flex-direction: column; } }
 
 .city-name {
   font-size: 65px;
@@ -95,13 +99,40 @@ body {
     flex-direction: column;
     margin: 35px; }
     .forecast-container .day-container .weather-icon {
-      height: 130px; }
+      height: 130px;
+      cursor: pointer; }
     .forecast-container .day-container .date {
       font-size: 30px;
       color: #333;
-      font-weight: 100; }
+      font-weight: 100;
+      cursor: pointer; }
 
 .weather-link {
   text-decoration: none; }
+
+.details-container .day-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 35px; }
+  .details-container .day-container .weather-icon {
+    height: 130px; }
+  .details-container .day-container .date {
+    font-size: 30px;
+    color: #333;
+    font-weight: 100; }
+.details-container .description-details {
+  font-size: 34px;
+  font-weight: 100;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center; }
+  .details-container .description-details .city-name-details {
+    font-size: 40px;
+    font-weight: 400; }
+  .details-container .description-details .min-temp {
+    color: rgba(101, 195, 224, 0.97); }
+  .details-container .description-details .max-temp {
+    color: rgba(236, 118, 80, 0.97); }
 
 /*# sourceMappingURL=index.css.map */

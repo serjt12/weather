@@ -9,7 +9,6 @@ class Search extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
-
   }
 
   handleOnClick(){
@@ -29,7 +28,7 @@ class Search extends Component {
     const city = this.state.city
     // console.log('CITY',city)
     return (
-      <div>
+      <div className='search-container'>
         <input
         type='text'
         className='text-box'

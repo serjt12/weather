@@ -55,21 +55,22 @@ class Forecast extends Component{
     api.fetchWeather(city)
       .then(res => {
         // console.log("WILL RECEIVE", res.city.name);
-        // console.log(res.list[0].weather)
         // console.log(res)
         this.setState(function(){
           return{
             weatherData: res,
-            loading: false
+            loading: false,
+            city: this.props.match.params.city
           }
         });
       });
   }
 
 handleClick(city){
+  // console.log('CITY:', city)
   this.props.history.push({
     pathname: `/details/${this.state.city}`,
-    state: this.state.city,
+    state: city,
   })
 }
 

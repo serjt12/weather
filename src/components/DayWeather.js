@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import getDate from '../utils/helpers';
 
 function DayWeather (props){
@@ -13,6 +14,11 @@ function DayWeather (props){
       <h2 className='date'>{date}</h2>
     </div>
   )
+}
+
+DayWeather.propTypes ={
+  onClick: PropTypes.func,
+  day: PropTypes.object,
 }
 
 export default DayWeather;

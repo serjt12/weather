@@ -4,18 +4,18 @@ import DayWeather from './DayWeather';
 class Details extends Component{
 
   render () {
-    // console.log('PROPS:',this.props.location.state);
+    // console.log('PROPS:',this.props);
     const props = this.props.location.state;
-    console.log(props)
+    // console.log(props)
     return (
-      <div>
+      <div className='details-container'>
         <DayWeather day={props} />
-        <div className='description-container'>
-          <p>{this.props.match.params.city}</p>
+        <div className='description-details'>
+          <p className='city-name-details'>{this.props.match.params.city}</p>
           <p>{props.weather[0].description}</p>
-          <p>min temp: {props.main.temp_min} degrees</p>
-          <p>max temp: {props.main.temp_max} degrees</p>
-          <p>humidity: {props.main.humidity}</p>
+          <p className='min-temp'>min temp: {props.temp.min} °C</p>
+          <p className='max-temp'>max temp: {props.temp.max} °C</p>
+          <p>humidity: {props.humidity}</p>
         </div>
       </div>
     )
