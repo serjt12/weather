@@ -45,7 +45,8 @@ body {
       border: 1px solid transparent;
       border-radius: 4px;
       margin-left: 46px;
-      text-decoration: none; }
+      text-decoration: none;
+      cursor: pointer; }
 
 .navbar {
   background: rgba(252, 90, 44, 0.89);
@@ -78,7 +79,8 @@ body {
     border: 1px solid transparent;
     border-radius: 4px;
     margin: 10px 10px 0 10px;
-    text-decoration: none; }
+    text-decoration: none;
+    cursor: pointer; }
   .navbar .search-nav {
     margin-top: 20px; }
     @media screen and (min-width: 280px) and (max-width: 530px) {
@@ -113,6 +115,10 @@ body {
 .weather-link {
   text-decoration: none; }
 
+.details-container .back-arrow {
+  width: 5%;
+  padding: 34px;
+  color: rgba(164, 207, 196, 0.82); }
 .details-container .day-container {
   display: flex;
   align-items: center;

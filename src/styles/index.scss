@@ -51,6 +51,7 @@ body {
       border-radius: 4px;
       margin-left: 46px;
       text-decoration: none;
+      cursor: pointer;
 
     }
   }
@@ -91,7 +92,7 @@ body {
     border-radius: 4px;
     margin: 10px 10px 0 10px;
     text-decoration: none;
-
+    cursor: pointer;
   }
   .search-nav{
     margin-top: 20px;
@@ -135,6 +136,11 @@ body {
   text-decoration: none
 }
 .details-container{
+  .back-arrow{
+    width: 5%;
+    padding: 34px;
+    color: rgba(164, 207, 196, 0.82)
+  }
   .day-container{
     display: flex;
     align-items: center;

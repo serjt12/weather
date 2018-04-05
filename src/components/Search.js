@@ -1,53 +1,74 @@
-import React, { Component } from 'react';
-// import api from '../utils/api';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import api from '../utils/api';
+import {withRouter} from 'react-router'
 
 class Search extends Component {
-  constructor(props){
-    super(props);
-    this.state={ city: ''};
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
-  }
+  state = {
+    city: 'St. George, Utah',
+    weatherData: []
+  };
 
-
-
-  handleOnClick(){
-    this.setState({
-      city: ''
-    })
-  }
-
-  onInputChange(e){
-    const city = e.target.value;
-    this.setState({
-      city
-    })
-  }
-  render () {
-
+  componentWillMount() {
     const city = this.state.city
-    // console.log('CITY',city)
-    return (
-      <div className='search-container'>
-        <input
+    api.fetchWeather(city).then(res => {
+      this.setState({weatherData: res, loading: false});
+    });
+  }
+
+  handleOnClick = (e) => {
+    e.preventDefault()
+    const {state: {
+        city
+      }} = this;
+    if (city === 'St. George') {
+      const {state: {
+          weatherData
+        }} = this
+      this.props.history.push({pathname: '/forecast/St. George, Utah', state: weatherData})
+    } else {
+      const {state: {
+          weatherData
+        }} = this;
+      this.props.history.push({
+        pathname: `/forecast/${city}`,
+        state: weatherData
+      })
+    }
+  }
+
+  handleOnFocus = () => {
+    this.setState({city: 'St. George, Utah'})
+  }
+
+  handleOnBlur = () => {
+    const {state: {
+        city
+      }} = this;
+    (city === '')
+      ? (this.setState({city: 'St. George, Utah'}))
+      : (this.setState({city}))
+  }
+
+  handleOnChange = (e) => {
+    const city = e.target.value;
+    this.setState({city});
+  }
+
+  render() {
+    return (<form className='search-container'>
+      <input
         type='text'
         className='text-box'
         placeholder='St. George, Utah'
-        onChange={this.onInputChange}
-        onFocus={this.onInputFocus}
-        value={this.state.city}
-        />
-
-      <Link  onClick={this.handleOnClick} to={`/forecast/${city}`} className='btn-main'>
-          Get Weather
-        </Link>
-      </div>
-    )
+        onChange={this.handleOnChange}
+        onFocus={this.handleOnFocus}
+        onBlur={this.handleOnBlur}/>
+      <button type='submit' onClick={this.handleOnClick} className='btn-main'>
+        Get Weather
+      </button>
+    </form>)
   }
 }
 
-
-
-export default Search;
+export default withRouter(Search);

@@ -5,23 +5,15 @@ import DayWeather from './DayWeather';
 
 
 class Forecast extends Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
+    state = {
       city: this.props.match.params.city,
       weatherData: [],
       loading: true
-
     }
-  }
 
   componentWillReceiveProps(nextProps) {
-    // console.log("State:",this.state.city);
-    // console.log("NEXTP:", nextProps.match.params.city);
-    const citynow = this.state.city;
+    const { state: {city: {citynow}}} = this;
     const citynext = nextProps.match.params.city;
-
     if( citynext !== citynow){
       this.request(citynext)
     }
@@ -29,67 +21,44 @@ class Forecast extends Component{
 
   componentWillMount() {
     const city = this.state.city
-    this.setState(function () {
-      return {
+    this.setState({
         loading: true
-      }
     })
     api.fetchWeather(city)
       .then(res => {
-        // console.log("WILL MOUNT", res.city.name)
-        this.setState(function(){
-          return{
+        this.setState({
             weatherData: res,
             loading: false
-          }
         });
       });
   }
 
   request(city){
-    this.setState(function () {
-      return {
+    this.setState({
         loading: true
-      }
     })
     api.fetchWeather(city)
       .then(res => {
-        // console.log("WILL RECEIVE", res.city.name);
-        // console.log(res)
-        this.setState(function(){
-          return{
+        this.setState({
             weatherData: res,
             loading: false,
             city: this.props.match.params.city
-          }
         });
       });
   }
 
-handleClick(city){
-  // console.log('CITY:', city)
-  this.props.history.push({
-    pathname: `/details/${this.state.city}`,
-    state: city,
-  })
-}
-
-
-
   render () {
-    // const name = this.state.weatherData.city.name
-    // console.log("STATE:",this.state)
-
+    const { state: { loading, weatherData }}= this
     return (
-      this.state.loading === true
-      ? <Loading text="We are looking the weather" />
+      (loading )
+      ? (<Loading text="We are working to get you the weather" />)
       :
       <section>
-      <h1 className='city-name'>{this.state.weatherData.city.name}</h1>
+      <h1 className='city-name'>{weatherData.city.name}</h1>
         <div className="forecast-container">
           {this.state.weatherData.list.map(function(listData){
-            return <DayWeather onClick={this.handleClick.bind(this, listData)} key={listData.dt} day={listData} />
-          },this)}
+            return <DayWeather key={listData.dt} day={listData} />
+          })}
         </div>
       </section>
     )

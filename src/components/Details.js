@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
-import DayWeather from './DayWeather';
+import React, { Component } from 'react'
+import DayWeather from './DayWeather'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import Back from '../styles/arrows.svg'
 
-class Details extends Component{
-
+class Details extends Component {
   render () {
-    // console.log('PROPS:',this.props);
-    const props = this.props.location.state;
-    // console.log(props)
+    const {props: {location: {state: data}}} = this
+    const {props: {match: {params: {city}}}} = this
     return (
       <div className='details-container'>
-        <DayWeather day={props} />
+        <Link to={`/forecast/${city}`}><img src={Back} alt='Back Arrow' className='back-arrow' /></Link>
+        <DayWeather day={data} />
         <div className='description-details'>
-          <p className='city-name-details'>{this.props.match.params.city}</p>
-          <p>{props.weather[0].description}</p>
-          <p className='min-temp'>min temp: {props.temp.min} °C</p>
-          <p className='max-temp'>max temp: {props.temp.max} °C</p>
-          <p>humidity: {props.humidity}</p>
+          <p className='city-name-details'>{city}</p>
+          <p>{data.weather[0].description}</p>
+          <p className='min-temp'>min temp: {data.temp.min} °C</p>
+          <p className='max-temp'>max temp: {data.temp.max} °C</p>
+          <p>humidity: {data.humidity}</p>
         </div>
       </div>
     )
   }
 }
+Details.propTypes = {
+  location: PropTypes.object,
+  match: PropTypes.object
+}
 
-export default Details;
+export default Details
