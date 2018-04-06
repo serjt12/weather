@@ -22,29 +22,25 @@ class Search extends Component {
         city
       }} = this;
     if (city === 'St. George') {
-      const {state: {
-          weatherData
-        }} = this
-      this.props.history.push({pathname: '/forecast/St. George, Utah', state: weatherData})
+      const {state: { weatherData }} = this
+      this.props.history.push({
+        pathname: '/forecast/St. George, Utah',
+        state: weatherData
+      })
     } else {
-      const {state: {
-          weatherData
-        }} = this;
+      const {state: { weatherData }} = this;
       this.props.history.push({
         pathname: `/forecast/${city}`,
         state: weatherData
       })
-    }
-  }
+    }}
 
   handleOnFocus = () => {
     this.setState({city: 'St. George, Utah'})
   }
 
   handleOnBlur = () => {
-    const {state: {
-        city
-      }} = this;
+    const {state: { city }} = this;
     (city === '')
       ? (this.setState({city: 'St. George, Utah'}))
       : (this.setState({city}))

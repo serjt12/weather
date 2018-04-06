@@ -8,19 +8,20 @@ class Forecast extends Component{
     state = {
       city: this.props.match.params.city,
       weatherData: [],
-      loading: true
+      loading: true,
     }
 
   componentWillReceiveProps(nextProps) {
     const { state: {city: {citynow}}} = this;
     const citynext = nextProps.match.params.city;
     if( citynext !== citynow){
-      this.request(citynext)
+      this.request(citynext);
+
     }
   }
 
   componentWillMount() {
-    const city = this.state.city
+    const city = this.state.city;
     this.setState({
         loading: true
     })
@@ -28,9 +29,13 @@ class Forecast extends Component{
       .then(res => {
         this.setState({
             weatherData: res,
-            loading: false
+            loading: false,
         });
-      });
+      }, err => {
+        this.props.history.push({
+          pathname: `/${city}`
+        })
+      })
   }
 
   request(city){
@@ -42,13 +47,17 @@ class Forecast extends Component{
         this.setState({
             weatherData: res,
             loading: false,
-            city: this.props.match.params.city
+            city: this.props.match.params.city,
         });
-      });
-  }
+      }, err => {
+        this.props.history.push({
+          pathname: `/${city}`
+        })
+      })
+    }
 
   render () {
-    const { state: { loading, weatherData }}= this
+    const { state: { loading, weatherData }}= this;
     return (
       (loading )
       ? (<Loading text="We are working to get you the weather" />)

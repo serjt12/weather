@@ -1,11 +1,11 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import notFound from '../styles/nf.svg'
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import notFound from '../styles/nf.svg';
 
-import Header from './Header'
-import Home from './Home'
-import Forecast from './Forecast'
-import Details from './Details'
+import Header from './Header';
+import Home from './Home';
+import Forecast from './Forecast';
+import Details from './Details';
 
 function App () {
   return (

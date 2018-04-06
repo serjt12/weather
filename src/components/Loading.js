@@ -10,7 +10,7 @@ const styles = {
 
 class Loading extends Component {
   state = {
-    text: 'Loading'
+    text: 'Loading',
   }
 
   componentWillUnmount() {
@@ -31,9 +31,10 @@ class Loading extends Component {
     }, this.props.speed)
   }
   render() {
-    return (<p style={styles.content}>
-      {this.state.text}
-    </p>)
+    return (
+      <p style={styles.content}>
+        {this.state.text}
+      </p>)
   }
 }
 

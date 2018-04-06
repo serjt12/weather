@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import getDate from '../utils/helpers'
-import { withRouter } from 'react-router'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import getDate from '../utils/helpers';
+import { withRouter } from 'react-router';
 
 class DayWeather extends Component {
 

@@ -2,6 +2,9 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   margin: 0;
 }
+#root{
+  height: 100vh;
+}
 
 
 .container{
@@ -10,7 +13,7 @@ body {
 }
 .main-box {
   background-image: url('./bg.svg');
-  height: 1061px;
+  height: 100%;
   display: flex;
   justify-content: center;
 
@@ -19,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    h1 {
+    h2 {
       font-size: 45px;
       color: white;
       font-weight: 100;
@@ -114,6 +117,7 @@ body {
   max-width: 1300px;
   flex-wrap: wrap;
   margin: 50px auto;
+  justify-content: center;
 
   .day-container{
     display: flex;

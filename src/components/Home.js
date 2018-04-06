@@ -1,11 +1,11 @@
-import React from 'react'
-import Search from './Search'
+import React from 'react';
+import Search from './Search';
 
 function Home () {
   return (
     <div className='main-box'>
       <div className='central'>
-        <h1>Enter a City and State</h1>
+        <h2>Enter a City and State</h2>
         <Search />
       </div>
     </div>
